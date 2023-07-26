@@ -44,7 +44,8 @@ app.get("/", (request, response) => {
 // finally set the response.json(photos)
 
 app.get("/photos", async (request, response) => {
-  const API = `https://api.unsplash.com/search/photos/?client_id=${process.env.ACCESS_KEY}&query=goat`;
+  const subject = request.query.subject;
+  const API = `https://api.unsplash.com/search/photos/?client_id=${process.env.ACCESS_KEY}&query=${subject}`;
 
   const res = await axios.get(API);
 
